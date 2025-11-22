@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
@@ -11,54 +12,59 @@
   <header class="topbar">
     <div class="brand">Termômetro<span class="brand-accent">Global</span></div>
     <button id="toggleTheme" class="theme-btn" aria-label="Alternar tema">🌙</button>
-  </header>
-
-  <main class="container" id="app">
+  </header>  <main class="container" id="app">
     <!-- Pergunta / Votação -->
     <section id="vote-screen" class="card vote-screen" aria-labelledby="question-title">
-      <h1 id="question-title" class="question">Qual você prefere?</h1>
+      <h1 id="question-title" class="question">Qual você prefere?</h1><div class="options-grid" role="list">
+    <button class="option" data-choice="A" role="listitem" aria-label="Escolher A">
+      <img id="imgA" src="" alt="Opção A" class="option-img" />
+      <div class="option-label">Opção A</div>
+    </button>
 
-      <div class="options-grid" role="list">
-        <button class="option" data-choice="A" role="listitem" aria-label="Escolher A">
-          <img src="assets/option-a.png" alt="Opção A" class="option-img" />
-          <div class="option-label">Opção A</div>
-        </button>
+    <button class="option" data-choice="B" role="listitem" aria-label="Escolher B">
+      <img id="imgB" src="" alt="Opção B" class="option-img" />
+      <div class="option-label">Opção B</div>
+    </button>
+  </div>
 
-        <button class="option" data-choice="B" role="listitem" aria-label="Escolher B">
-          <img src="assets/option-b.png" alt="Opção B" class="option-img" />
-          <div class="option-label">Opção B</div>
-        </button>
-      </div>
+  <div class="hint">Toque em uma opção para votar</div>
+</section>
 
-      <div class="hint">Toque em uma opção para votar</div>
-    </section>
+<!-- Resultado -->
+<section id="result-screen" class="card result-screen hidden" aria-live="polite">
+  <div class="result-top">
+    <div class="you-chose">Você escolheu <span id="you-choice">—</span></div>
+    <button id="nextBtn" class="btn small">Próxima pergunta →</button>
+  </div>
 
-    <!-- Resultado -->
-    <section id="result-screen" class="card result-screen hidden" aria-live="polite">
-      <div class="result-top">
-        <div class="you-chose">Você escolheu <span id="you-choice">—</span></div>
-        <button id="nextBtn" class="btn small">Próxima pergunta →</button>
-      </div>
+  <div class="progress-wrap" aria-hidden="false">
+    <div class="progress-bar" id="progressBar">
+      <div id="barA" class="bar bar-a" style="width:0%">0%</div>
+      <div id="barB" class="bar bar-b" style="width:0%">0%</div>
+    </div>
+    <div class="labels">
+      <div id="labelA" class="label">Opção A</div>
+      <div id="labelB" class="label">Opção B</div>
+    </div>
+  </div>
 
-      <div class="progress-wrap" aria-hidden="false">
-        <div class="progress-bar" id="progressBar">
-          <div id="barA" class="bar bar-a" style="width:0%">0%</div>
-          <div id="barB" class="bar bar-b" style="width:0%">0%</div>
-        </div>
-        <div class="labels">
-          <div id="labelA" class="label">Opção A</div>
-          <div id="labelB" class="label">Opção B</div>
-        </div>
-      </div>
+  <div class="share-hint">Compartilhe o resultado e veja como o mundo votou!</div>
+</section>
 
-      <div class="share-hint">Compartilhe o resultado e veja como o mundo votou!</div>
-    </section>
-  </main>
-
-  <footer class="footer">
+  </main>  <footer class="footer">
     <small>Feito com ♥ — MVP</small>
-  </footer>
+  </footer>  <script>
+    async function gerarImagens() {
+      const promptA = "um objeto minimalista fundo branco";
+      const promptB = "um objeto colorido fundo branco";
 
-  <script src="app.js" defer></script>
-</body>
+      const urlA = `https://dummyimage.com/600x600/000/fff&text=${encodeURIComponent(promptA)}`;
+      const urlB = `https://dummyimage.com/600x600/111/fff&text=${encodeURIComponent(promptB)}`;
+
+      document.getElementById('imgA').src = urlA;
+      document.getElementById('imgB').src = urlB;
+    }
+
+    gerarImagens();
+  </script></body>
 </html>
