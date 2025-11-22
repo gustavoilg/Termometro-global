@@ -79,3 +79,52 @@ document.addEventListener('DOMContentLoaded', () => {
   // init
   loadQuestion(current);
 });
+// Banco de imagens local (pode trocar por URLs reais depois)
+const images = [
+    "https://via.placeholder.com/400x400?text=Carro",
+    "https://via.placeholder.com/400x400?text=Pizza",
+    "https://via.placeholder.com/400x400?text=Praia",
+    "https://via.placeholder.com/400x400?text=Gato",
+    "https://via.placeholder.com/400x400?text=Futebol",
+    "https://via.placeholder.com/400x400?text=Sorvete",
+    "https://via.placeholder.com/400x400?text=Moto",
+    "https://via.placeholder.com/400x400?text=Montanha",
+    "https://via.placeholder.com/400x400?text=Café",
+    "https://via.placeholder.com/400x400?text=Computador"
+];
+
+// Elementos da interface
+const optionA = document.getElementById("optionA").querySelector("img");
+const optionB = document.getElementById("optionB").querySelector("img");
+const resultBox = document.getElementById("result");
+
+// Escolhe 2 imagens diferentes aleatórias
+function generateOptions() {
+    let a = Math.floor(Math.random() * images.length);
+    let b = Math.floor(Math.random() * images.length);
+
+    while (b === a) {
+        b = Math.floor(Math.random() * images.length);
+    }
+
+    optionA.src = images[a];
+    optionB.src = images[b];
+}
+
+// Função de voto
+function vote(option) {
+    if (option === "A") {
+        resultBox.textContent = "Você escolheu A!";
+    } else {
+        resultBox.textContent = "Você escolheu B!";
+    }
+
+    // Aguarda 500ms e troca as imagens
+    setTimeout(() => {
+        resultBox.textContent = "";
+        generateOptions();
+    }, 500);
+}
+
+// Inicializa a primeira dupla
+generateOptions();
