@@ -1,3 +1,16 @@
+// Banco de imagens local (pode trocar por URLs reais depois)
+const images = [
+    "https://dummyimage.com/400x400/222/fff&text=Carro",
+    "https://dummyimage.com/400x400/333/fff&text=Pizza",
+    "https://dummyimage.com/400x400/444/fff&text=Praia",
+    "https://dummyimage.com/400x400/555/fff&text=Gato",
+    "https://dummyimage.com/400x400/666/fff&text=Futebol",
+    "https://dummyimage.com/400x400/777/fff&text=Sorvete",
+    "https://dummyimage.com/400x400/888/fff&text=Moto",
+    "https://dummyimage.com/400x400/999/fff&text=Montanha",
+    "https://dummyimage.com/400x400/111/fff&text=Café",
+    "https://dummyimage.com/400x400/000/fff&text=Computador"
+];
 // app.js - demo minimal
 document.addEventListener('DOMContentLoaded', () => {
   const voteScreen = document.getElementById('vote-screen');
