@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Termômetro Global — MVP</title>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Vote rápido: escolha entre duas opções e veja o resultado global em tempo real (MVP)." />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Termômetro<span class="brand-accent">Global</span></div>
+    <button id="toggleTheme" class="theme-btn" aria-label="Alternar tema">🌙</button>
+  </header>
+
+  <main class="container" id="app">
+    <!-- Pergunta / Votação -->
+    <section id="vote-screen" class="card vote-screen" aria-labelledby="question-title">
+      <h1 id="question-title" class="question">Qual você prefere?</h1>
+
+      <div class="options-grid" role="list">
+        <button class="option" data-choice="A" role="listitem" aria-label="Escolher A">
+          <img src="assets/option-a.png" alt="Opção A" class="option-img" />
+          <div class="option-label">Opção A</div>
+        </button>
+
+        <button class="option" data-choice="B" role="listitem" aria-label="Escolher B">
+          <img src="assets/option-b.png" alt="Opção B" class="option-img" />
+          <div class="option-label">Opção B</div>
+        </button>
+      </div>
+
+      <div class="hint">Toque em uma opção para votar</div>
+    </section>
+
+    <!-- Resultado -->
+    <section id="result-screen" class="card result-screen hidden" aria-live="polite">
+      <div class="result-top">
+        <div class="you-chose">Você escolheu <span id="you-choice">—</span></div>
+        <button id="nextBtn" class="btn small">Próxima pergunta →</button>
+      </div>
+
+      <div class="progress-wrap" aria-hidden="false">
+        <div class="progress-bar" id="progressBar">
+          <div id="barA" class="bar bar-a" style="width:0%">0%</div>
+          <div id="barB" class="bar bar-b" style="width:0%">0%</div>
+        </div>
+        <div class="labels">
+          <div id="labelA" class="label">Opção A</div>
+          <div id="labelB" class="label">Opção B</div>
+        </div>
+      </div>
+
+      <div class="share-hint">Compartilhe o resultado e veja como o mundo votou!</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Feito com ♥ — MVP</small>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
